@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--main-bg-color);
+}
+
+html, body {
+    height: 100%;
+}
+
+#app {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-text-color);
+}
+
+a:visited {
+    color: var(--dark-text-color);
+}
+
+.icon-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}

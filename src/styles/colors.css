@@ -1,0 +1,9 @@
+:root {
+    --header-color: #5a0808;
+    --border-color: black;
+    --main-bg-color: #dddddd;
+    --light-bg-color: white;
+    --light-contrast-color: #f88383;
+    --contrast-color: red;
+    --dark-text-color: black;
+}

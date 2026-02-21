@@ -30,7 +30,7 @@ const data = [];
 for (const artist of artists) {
     const albumsData = await getArtistAlbums(artist);
     if (albumsData && albumsData.length) {
-        data.push(albumsData);
+        data.push(...albumsData);
     }
     fs.writeFileSync("./data/data.json", JSON.stringify(data));
 }
