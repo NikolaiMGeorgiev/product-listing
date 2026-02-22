@@ -3,6 +3,7 @@ import "../styles/products.css";
 import { useEffect, useRef, useState } from "react";
 import Product from "./product/Product.js";
 import { getNewCursor, getNewData } from "../../data/data-handler.js";
+import ProductCounter from "./products/ProductCounter.js";
 
 export default function Products({ initialData }) {
     const [cursor, setCursor] = useState(0);
@@ -21,12 +22,24 @@ export default function Products({ initialData }) {
         setCursor(newCursor);
         setHasMoreData(!newData.done);
     }
+
+    const getProductsList = () => {
+        const dataList = [];
+        for (let i = 0; i < data.length; i++) {
+            const record = data[i];
+            if (i == cursor) {
+                dataList.push(
+                    <ProductCounter key="progress-bar" cursor={cursor} dataLength={initialData.length} />)
+            }
+            dataList.push(<Product data={record} key={record.id} isPopupBusy={isPopupBusy} />)
+        }
+        return dataList;
+    }
      
     return (
         <div id="products__container">
             <div id="products">
-                {data.map(record => 
-                    <Product data={record} key={record.id} isPopupBusy={isPopupBusy} />)}
+                {getProductsList()}
             </div>
             {hasMoreData && 
                 <div className="btn-container">
