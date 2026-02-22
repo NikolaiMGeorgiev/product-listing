@@ -7,11 +7,14 @@ import Products from "./components/Products";
 import Footer from "./components/Footer";
 
 const root = createRoot(document.getElementById("app"));
+root.render(<App />);
 
-root.render(
-    <>
-        <Header />
-        <Products />
-        <Footer />
-    </>
-)
+function App() {
+    return (
+        <>
+            <Header />
+            <Products />
+            <Footer />
+        </>
+    )
+}
