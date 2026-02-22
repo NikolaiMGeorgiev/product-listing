@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import { v4 as getId } from "uuid";
 
 const API_HOST = "https://www.theaudiodb.com/api/v1/json/123";
 
@@ -45,6 +46,7 @@ async function getArtistAlbums(artist) {
                 albumData.strAlbumCDart &&
                 albumData.strAlbumThumb)
             .map(albumData => ({
+                id: getId(),
                 artist: albumData.strArtist,
                 name: albumData.strAlbum,
                 year: albumData.intYearReleased,
@@ -54,7 +56,8 @@ async function getArtistAlbums(artist) {
                 style: albumData.strStyle,
                 description: albumData.strDescriptionEN,
                 price: getRandomNumber(prices),
-                discount: getRandomNumber(discounts)
+                discount: getRandomNumber(discounts),
+                rating: Number.parseFloat(Math.random() * (2) + 3).toFixed(1)
             }));
 }
 

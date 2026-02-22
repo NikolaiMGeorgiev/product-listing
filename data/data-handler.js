@@ -1,7 +1,12 @@
 import { ITEMS_PER_PAGE } from "../src/config";
 import {data} from "./data.js"
 
-export function getNewData(cursor) {
+export const newEntriesData = data.filter(albumData => albumData.year > 2020);
+export const classicsData = data.filter(albumData => albumData.year < 1990);
+export const salesDate = data.filter(albumData => albumData.discount);
+export const fullData = [...data];
+
+export function getNewData(data, cursor) {
     if (cursor + ITEMS_PER_PAGE >= data.length) {
         return {
             value: [...data],

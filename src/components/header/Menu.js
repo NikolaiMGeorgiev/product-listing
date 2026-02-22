@@ -1,22 +1,23 @@
 import { useState } from "react"
 import MenuIcon from "../icons/MenuIcon";
 import ExIcon from "../icons/ExIcon";
+import { Link, useLocation } from "react-router-dom";
 
 const linksData = {
     all: {
-        href: "",
+        href: "/",
         text: "All CDs"
     }, 
     new: {
-        href: "new",
+        href: "/new",
         text: "New Entires"
     }, 
     classics: {
-        href: "classics",
+        href: "/classics",
         text: "Classics"
     },
     sale: {
-        href: "sale",
+        href: "/sale",
         text: "Sale"
     }
 };
@@ -38,10 +39,7 @@ export default function Menu() {
             <div id="menu__container">
                 <nav>
                     <ul>
-                        {Object.keys(linksData).map(name => 
-                            <li key={name}>
-                                <MenuLink name={name} />
-                            </li>)}
+                        {Object.keys(linksData).map(name => <MenuLink name={name} key={name} />)}
                     </ul>
                 </nav>
             </div>
@@ -50,13 +48,15 @@ export default function Menu() {
 }
 
 function MenuLink({ name }) {
+    const location = useLocation();
     const linkData = linksData[name] ? linksData[name] : linksData.all;
-    const pathname = window.location.pathname;
-    const isActive = linkData.href == pathname;
+    const isActive = linkData.href == location.pathname;
 
     return (
-         <a href={linkData.href} className={isActive ? "active" : ""}>
-            <span>{linkData.text}</span>
-        </a>
+        <li className={isActive ? "active" : ""}>
+            <Link to={linkData.href}>
+                <span>{linkData.text}</span>
+            </Link>
+        </li>
     )
 }

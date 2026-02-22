@@ -2,6 +2,7 @@ import "../../styles/product.css";
 
 import BuyButton from "./BuyButton";
 import Price from "./Price";
+import Rating from "./Rating";
 
 export default function Product({ data, isPopupBusy }) {
     return (
@@ -14,6 +15,10 @@ export default function Product({ data, isPopupBusy }) {
                         <span className="discount">{`${data.discount * 100}% OFF`}</span>}
                 </div>
                 <img src={data.cover} alt={`Cover of the album ${data.name} by ${data.artist}`} />
+                <div className="product__additional-info">
+                    <h4>Released: {data.year}</h4>
+                    <Rating itemId={data.id} rating={data.rating} />
+                </div>
                 <div className="product__description">
                     <p>{data.description}</p>
                     <span>...</span>
