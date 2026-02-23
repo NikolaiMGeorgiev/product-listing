@@ -19,3 +19,32 @@
     
     font-size: 1.1rem;
 }
+
+#category-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--light-bg-color);
+}
+
+#category-info h1 {
+    margin: 10px 10px 0;
+    padding-bottom: 5px;
+    text-align: center;
+    border-bottom: 2px solid;
+}
+
+#category-info p {
+    margin: 0;
+    padding: 10px;
+}
+
+#category-info img {
+    width: 100%;
+    height: 256px;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}

@@ -1,12 +1,13 @@
 import "../styles/header.css";
 
-import Logo from "./header/Logo";
 import Menu from "./header/Menu";
 
 export default function Header() {
     return (
         <header id="main-header">
-            <Logo />
+            <a className="logo" href="index.html">
+                <img src="../public/logo.png" alt="Website Logo - DiscoTake" />
+            </a>
             <Menu />
         </header>
     )

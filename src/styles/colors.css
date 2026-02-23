@@ -3,8 +3,10 @@
     --border-color: black;
     --main-bg-color: #dddddd;
     --grey-color: #dddddd;
-    --light-bg-color: white;
+    --light-bg-color: #ffffff;
     --light-contrast-color: #f88383;
+    --dark-contrast-color: #b31717;
     --contrast-color: #e4d553;
     --dark-text-color: black;
+    --light-text-color: #ffffff;
 }

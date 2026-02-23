@@ -38,3 +38,8 @@ a:visited {
     display: flex;
     justify-content: center;
 }
+
+.no-style-list {
+    list-style: none;
+    padding-inline-start: 0;
+}

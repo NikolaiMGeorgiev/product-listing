@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Product from "./product/Product.js";
 import { getNewCursor, getNewData } from "../../data/data-handler.js";
 import ProductCounter from "./products/ProductCounter.js";
+import CategoryInfo from "./products/CategoryInfo.js";
 
-export default function Products({ initialData }) {
+export default function Products({ initialData, type }) {
     const [cursor, setCursor] = useState(0);
     const [data, setData] = useState(getNewData(initialData, cursor).value);
     const [hasMoreData, setHasMoreData] = useState(true);
@@ -38,6 +39,7 @@ export default function Products({ initialData }) {
      
     return (
         <div id="products__container">
+            <CategoryInfo name={type} />
             <div id="products">
                 {getProductsList()}
             </div>

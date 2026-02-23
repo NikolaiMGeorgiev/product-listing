@@ -1,0 +1,100 @@
+footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+
+    background-color: var(--header-color);
+    border-top: 2px solid var(--border-color);
+    color: var(--light-contrast-color);
+}
+
+footer .logo {
+    height: 18px;
+}
+
+footer .icon path {
+    fill: var(--light-contrast-color);
+}
+
+#footer__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer__header #footer__moto {
+    margin: 2px 0 0;
+}
+
+#footer__salepoints {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+#footer__salepoints .salepoint {
+    display: flex;
+    flex-direction: column;
+}
+
+#footer__salepoints .salepoint__icon {
+    height: 48px;
+    width: 48px;
+    padding: 12px;
+    margin: 0 auto 10px;
+    background-color: var(--dark-text-color);
+    border-radius: 50%;
+}
+
+#footer__salepoints .salepoint .salepoint__text {
+    text-align: center;
+}
+
+#footer__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer__socials-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer__socials-icons .icon {
+    height: 24px;
+    width: 24px;
+}
+
+#footer__socials-icons a + a {
+    margin-left: 10px;
+}
+
+.footer__section-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+footer ul {
+    margin: 0;
+}
+
+#footer__list-wrapper {
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer ul a,
+footer ul a:visited {
+    color: var(--light-contrast-color);
+}
+
+footer ul li + li {
+    margin-top: 5px;
+}

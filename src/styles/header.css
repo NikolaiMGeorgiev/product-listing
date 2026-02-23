@@ -15,11 +15,11 @@
     z-index: 1000;
 }
 
-#main-header #logo {
+#main-header .logo {
     display: flex;
 }
 
-#main-header #logo img {
+#main-header .logo img {
     height: 24px;
 }
 
@@ -102,8 +102,6 @@
 
 #menu ul {
     margin: 10px 0 0;
-    list-style: none;
-    padding-inline-start: 0;
     opacity: 0;
     transition: opacity 500ms;
 }

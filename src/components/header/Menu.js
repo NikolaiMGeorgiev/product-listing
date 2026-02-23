@@ -2,25 +2,7 @@ import { useState } from "react"
 import MenuIcon from "../icons/MenuIcon";
 import ExIcon from "../icons/ExIcon";
 import { Link, useLocation } from "react-router-dom";
-
-const linksData = {
-    all: {
-        href: "/",
-        text: "All CDs"
-    }, 
-    new: {
-        href: "/new",
-        text: "New Entires"
-    }, 
-    classics: {
-        href: "/classics",
-        text: "Classics"
-    },
-    sale: {
-        href: "/sale",
-        text: "Sale"
-    }
-};
+import { categoryData } from "../../../data/data";
 
 export default function Menu() {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -38,8 +20,8 @@ export default function Menu() {
             </div>
             <div id="menu__container">
                 <nav>
-                    <ul>
-                        {Object.keys(linksData).map(name => <MenuLink name={name} key={name} />)}
+                    <ul className="no-style-list">
+                        {Object.keys(categoryData).map(name => <MenuLink name={name} key={name} />)}
                     </ul>
                 </nav>
             </div>
@@ -49,13 +31,13 @@ export default function Menu() {
 
 function MenuLink({ name }) {
     const location = useLocation();
-    const linkData = linksData[name] ? linksData[name] : linksData.all;
+    const linkData = categoryData[name] ? categoryData[name] : categoryData.all;
     const isActive = linkData.href == location.pathname;
 
     return (
         <li className={isActive ? "active" : ""}>
             <Link to={linkData.href}>
-                <span>{linkData.text}</span>
+                <span>{linkData.title}</span>
             </Link>
         </li>
     )
