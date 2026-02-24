@@ -31,3 +31,21 @@ export const categoryData = {
         text: "Records that are light on the wallet but heavy-handed on the good vibes. Don't miss out on these deals as they are available only for a limited time."
     }
 };
+
+export const genres = data
+    .reduce((accumulator, albumData) => {
+        const genre = albumData.genre;
+        if (genre && accumulator.indexOf(genre) == -1) {
+            accumulator.push(genre);
+        }
+        return accumulator;
+    }, []);
+
+export const artists = data
+    .reduce((accumulator, albumData) => {
+        const artist = albumData.artist;
+        if (accumulator.indexOf(artist) == -1) {
+            accumulator.push(artist);
+        }
+        return accumulator;
+    }, []);

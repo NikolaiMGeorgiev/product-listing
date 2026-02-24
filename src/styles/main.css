@@ -43,3 +43,9 @@ a:visited {
     list-style: none;
     padding-inline-start: 0;
 }
+
+.text-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}

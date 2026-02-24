@@ -5,6 +5,7 @@ import Product from "./product/Product.js";
 import { getNewCursor, getNewData } from "../../data/data-handler.js";
 import ProductCounter from "./products/ProductCounter.js";
 import CategoryInfo from "./products/CategoryInfo.js";
+import Filter from "./products/Filter.js";
 
 export default function Products({ initialData, type }) {
     const [cursor, setCursor] = useState(0);
@@ -39,6 +40,7 @@ export default function Products({ initialData, type }) {
      
     return (
         <div id="products__container">
+            <Filter />
             <CategoryInfo name={type} />
             <div id="products">
                 {getProductsList()}
