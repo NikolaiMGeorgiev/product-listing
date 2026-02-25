@@ -49,3 +49,9 @@ a:visited {
     border: none;
     padding: 0;
 }
+
+.single-centered-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

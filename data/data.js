@@ -49,3 +49,19 @@ export const artists = data
         }
         return accumulator;
     }, []);
+
+export const sorting = [
+    {
+        value: "titleAsc",
+        text: "Title (A-Z)"
+    }, {
+        value: "titleDesc",
+        text: "Title (Z-A)"
+    }, {
+        value: "priceAsc",
+        text: "Price (Low to High)"
+    }, {
+        value: "priceDesc",
+        text: "Price (High to Low)"
+    }
+]

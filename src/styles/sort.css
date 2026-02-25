@@ -1,0 +1,21 @@
+#sorting {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 24px;
+    margin: 20px 0;
+}
+
+#sorting .dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+    z-index: 1000;
+}
+
+#sorting > span {
+    position: relative;
+    right: 185px;
+}

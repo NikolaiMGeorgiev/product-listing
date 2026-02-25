@@ -2,19 +2,40 @@ import "../../styles/filter.css";
 
 import { artists, genres } from "../../../data/data";
 import FilterIcon from "../icons/FilterIcon";
-import { useState } from "react";
-import CustomCheckbox from "./CustomCheckbox";
+import { useRef, useState } from "react";
+import CustomCheckbox from "../common/CustomCheckbox";
 import ExIcon from "../icons/ExIcon";
 
-export default function Filter() {
+export default function Filter({ setFilter }) {
     const [isExpanded, setIsExpanded] = useState(false);
+    const formRef = useRef(null);
+    const clearGenreRef = useRef(null);
+    const clearArtistRef = useRef(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(formRef.current);
+        const data = {};
+        for (let key of formData.keys()) {
+            data[key] = formData.getAll(key)
+        }
+        setFilter(data);
+        setIsExpanded(false);
+    }
+
+    const handleCancel = () => {
+        clearArtistRef.current.click();
+        clearGenreRef.current.click();
+        setFilter({})
+        setIsExpanded(false);
+    }
 
     return (
         <div id="filter" className={isExpanded ? "expanded" : ""}>
             <div id="filter__icon-container" onClick={() => setIsExpanded(!isExpanded)}>
                 <FilterIcon />
             </div>
-            <form id="filter__wrapper">
+            <form id="filter__wrapper" ref={formRef} onSubmit={handleSubmit} >
                 <div id="filter__container">
                     <div id="filter__header">
                         <h2>Filter</h2>
@@ -28,35 +49,58 @@ export default function Filter() {
                             title="Genres"
                             name="genre"
                             data={genres}
+                            clearRef={clearGenreRef}
                         />
                         <CheckboxFilterSection
                             id="filter__artists"
                             title="Artists"
                             name="artist"
                             data={artists}
+                            clearRef={clearArtistRef}
                         />
                     </div>
                 </div>
                 <div className="btn-container">
-                    <button type="submit">Apply</button>
-                    <button type="button">Cancel</button>
+                    <button className="submit-btn" type="submit">Apply</button>
+                    <button className="cancel-btn" type="button" onClick={handleCancel}>Clear</button>
                 </div>
             </form>
         </div>
     )
 }
 
-function CheckboxFilterSection({ id, title, name, data }) {
+function CheckboxFilterSection({ id, title, name, data, clearRef }) {
+    const [checked, setChecked] = useState([]);
+    
+    const handleClearField = () => {
+        setChecked([]);
+    }
+
+    const handleCheck = (isChecked, field) => {
+        if (isChecked) {
+            setChecked([...checked, field])
+        } else {
+            setChecked(checked.filter(single => single != field))
+        }
+    }
+
     return (
         <div id={id} className="section">
             <div className="filter__section-header">
                 <span className="filter__title">{title}:</span>
-                <button type="button" className="clear-btn text-btn">Clear</button>
+                <button ref={clearRef} type="button" className="clear-btn text-btn" onClick={handleClearField}>Clear</button>
             </div>
             <ul className="no-style-list">
                 {data.map(single => 
                     <li key={single}>
-                        <CustomCheckbox name={name} value={single} labelText={single} />
+                        <CustomCheckbox 
+                            name={name} 
+                            value={single} 
+                            labelText={single} 
+                            isChecked={checked.indexOf(single) > -1}
+                            setIsChecked={handleCheck}    
+                        /> 
+                        
                     </li>)}
             </ul>
         </div>
