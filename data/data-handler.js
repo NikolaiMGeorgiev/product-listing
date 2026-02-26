@@ -19,7 +19,11 @@ export function filterData(data, filterData) {
     const filters = Object.keys(filterData);
     return data.filter(single => {
         for (let filter of filters) {
-            if (filterData[filter].indexOf(single[filter]) == -1) {
+            if (filter == "maxPrice") {
+                if (single.price > filterData[filter]) {
+                    return false
+                }
+            } else if (filterData[filter].indexOf(single[filter]) == -1) {
                 return false;
             }
         }

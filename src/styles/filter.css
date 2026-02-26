@@ -1,6 +1,6 @@
 #filter__icon-container {
     position: fixed;
-    top: 52px;
+    top: 62px;
     left: 10px;
     width: 36px;
     height: 36px;
@@ -42,15 +42,21 @@
 }
 
 #filter .section {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     border: 2px solid var(--border-color);
     border-radius: 10px;
+    overflow: hidden;
+}
+
+#filter .filter__section-content {
+    overflow-y: auto;
 }
 
 #filter__wrapper {
     position: fixed;
-    top: 42px;
+    top: 48px;
     left: 0;
 
     width: 100%;
@@ -71,7 +77,7 @@
 }
 
 #filter__container {
-    height: calc(100% - 112px);
+    height: calc(100% - 102px);
     margin-top: 20px;
     overflow-y: auto;
 }
@@ -81,8 +87,11 @@
 }
 
 #filter__filters {
+    display: grid;
+    grid-template-rows: 125px 1fr 1fr;
+    grid-row-gap: 20px;
     width: 100%;
-    height: calc(100% - 40px);
+    height: calc(100% - 30px);
     padding: 20px;
 }
 
@@ -150,5 +159,6 @@
 @media (min-width: 740px) {
     #filter__wrapper {
         width: 400px;
+        border-right: 2px solid;
     }
 }

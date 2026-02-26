@@ -29,6 +29,7 @@
     border-radius: 10px;
     border: 1px solid var(--border-color);
     background-color: var(--light-bg-color);
+    box-shadow: 0px 0px 12px -4px;
 }
 
 .category-info__text {

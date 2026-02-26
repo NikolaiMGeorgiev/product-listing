@@ -5,12 +5,27 @@ import FilterIcon from "../icons/FilterIcon";
 import { useRef, useState } from "react";
 import CustomCheckbox from "../common/CustomCheckbox";
 import ExIcon from "../icons/ExIcon";
+import Slider from "../common/Slider";
 
-export default function Filter({ setFilter }) {
+export default function Filter({ data, setFilter }) {
     const [isExpanded, setIsExpanded] = useState(false);
     const formRef = useRef(null);
+    
     const clearGenreRef = useRef(null);
     const clearArtistRef = useRef(null);
+
+    const minPrice = data.reduce((accumulator, currentData) => {
+        if (accumulator > currentData.price) {
+            return Math.ceil(currentData.price);
+        }
+        return accumulator;
+    }, Infinity);
+    const maxPrice = data.reduce((accumulator, currentData) => {
+        if (accumulator < currentData.price) {
+            return  Math.ceil(currentData.price);
+        }
+        return accumulator;
+    }, 0);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -44,6 +59,12 @@ export default function Filter({ setFilter }) {
                         </button>
                     </div>
                     <div id="filter__filters">
+                        <div id="filter__price" className="section">
+                            <div className="filter__section-header">
+                                <span className="filter__title">Max price:</span>
+                            </div>
+                            <Slider min={minPrice} max={maxPrice} name="maxPrice" />
+                        </div>
                         <CheckboxFilterSection
                             id="filter__genres"
                             title="Genres"
@@ -90,7 +111,7 @@ function CheckboxFilterSection({ id, title, name, data, clearRef }) {
                 <span className="filter__title">{title}:</span>
                 <button ref={clearRef} type="button" className="clear-btn text-btn" onClick={handleClearField}>Clear</button>
             </div>
-            <ul className="no-style-list">
+            <ul className="filter__section-content no-style-list">
                 {data.map(single => 
                     <li key={single}>
                         <CustomCheckbox 

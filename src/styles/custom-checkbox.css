@@ -19,6 +19,7 @@
     border: 1px solid var(--border-color);
     background-color: transparent;
     z-index: 1;
+    cursor: pointer;
 }
 
 .custom-checkbox.checked .icon path {

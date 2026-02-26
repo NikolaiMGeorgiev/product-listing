@@ -74,7 +74,7 @@ export default function Products({ initialData, type }) {
      
     return (
         <div id="products__container">
-            <Filter setFilter={setFilter} />
+            <Filter data={fullData} setFilter={setFilter} />
             <CategoryInfo name={type} />
             <Sort sortedBy={sortedBy} setSortedBy={setSortedBy} />
             <div id="products">
