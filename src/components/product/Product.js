@@ -17,7 +17,7 @@ export default function Product({ data, isPopupBusy }) {
                 </div>
                 <img src={data.cover} alt={`Cover of the album ${data.name} by ${data.artist}`} />
                 <div className="product__additional-info">
-                    <div className="single-centered-row">
+                    <div className="product__stats single-centered-row">
                         <div className="year additional-info">Released: {data.year}</div>
                         <div className="genre additional-info">Genre: {data.genre}</div>
                     </div>

@@ -9,6 +9,7 @@
 body {
     margin: 0;
     background-color: var(--main-bg-color);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 html, body {
