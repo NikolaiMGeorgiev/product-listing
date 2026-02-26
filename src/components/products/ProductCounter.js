@@ -1,9 +1,7 @@
 import "../../styles/product-counter.css"
 
-import { ITEMS_PER_PAGE } from "../../config";
-
-export default function ProductCounter({ cursor, dataLength }) {
-    const productsShown = cursor + ITEMS_PER_PAGE > dataLength ? dataLength : cursor + ITEMS_PER_PAGE;
+export default function ProductCounter({ cursor, dataLength, itemsPerPage }) {
+    const productsShown = cursor + itemsPerPage > dataLength ? dataLength : cursor + itemsPerPage;
     const progress = Math.ceil(productsShown * 100 / dataLength);
 
     return (

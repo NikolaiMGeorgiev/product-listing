@@ -21,7 +21,7 @@ export default function Menu() {
             <div id="menu__container">
                 <nav>
                     <ul className="no-style-list">
-                        {Object.keys(categoryData).map(name => <MenuLink name={name} key={name} />)}
+                        {Object.keys(categoryData).map(name => <MenuLink name={name} key={name} onClick={() => setIsExpanded(false)} />)}
                     </ul>
                 </nav>
             </div>
@@ -29,14 +29,14 @@ export default function Menu() {
     )
 }
 
-function MenuLink({ name }) {
+function MenuLink({ name, onClick }) {
     const location = useLocation();
     const linkData = categoryData[name] ? categoryData[name] : categoryData.all;
     const isActive = linkData.href == location.pathname;
 
     return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={linkData.href}>
+        <li className={isActive ? "active" : ""} onClick={onClick}>
+            <Link to={linkData.href} >
                 <span>{linkData.title}</span>
             </Link>
         </li>

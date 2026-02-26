@@ -115,3 +115,28 @@
     color: white;
     font-weight: bold;
 }
+
+@media (min-width: 740px) {
+    #products {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .product {
+        padding: 20px;
+    }
+}
+
+
+@media (min-width: 900px) {
+    #products {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+}
+
+@media (min-width: 1280px) {
+    #products {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

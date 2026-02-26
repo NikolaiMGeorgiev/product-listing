@@ -1,20 +1,18 @@
-import { ITEMS_PER_PAGE } from "../src/config";
-
-export function getNewData(data, cursor) {
-    if (cursor + ITEMS_PER_PAGE >= data.length) {
+export function getNewData(data, cursor, itemsPerPage) {
+    if (cursor + itemsPerPage >= data.length) {
         return {
             value: [...data],
             done: true
         };
     }
     return {
-        value: [...data].splice(0, cursor + ITEMS_PER_PAGE),
+        value: [...data].splice(0, cursor + itemsPerPage),
         done: false
     };
 }
 
-export function getNewCursor(cursor) {
-    return cursor + ITEMS_PER_PAGE;
+export function getNewCursor(cursor, itemsPerPage) {
+    return cursor + itemsPerPage;
 }
 
 export function filterData(data, filterData) {
@@ -43,4 +41,8 @@ export function sortData(data, sortedBy) {
         }
     });
     return newData;
+}
+
+export function getItemsPerPage() {
+    return getComputedStyle(document.querySelector(":root")).getPropertyValue("--items-per-page");
 }

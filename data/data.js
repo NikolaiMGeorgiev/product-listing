@@ -9,13 +9,13 @@ export const categoryData = {
     all: {
         href: "/",
         title: "All CDs",
-        image: "all-discs-hero.png",
+        image: "all-discs-hero.jpg",
         text: "Our full selection of records - all in one place. Find a new favourite, renew the flame with an old classic to bring you back to the good old days, or just see what catches your eye."
     }, 
     new: {
         href: "/new",
         title: "New Entires",
-        image: "new-arrivals-hero.png",
+        image: "new-arrivals-hero.jpg",
         text: "Looking for the hotest hits from the past decade? Or for some new indie deep cuts? We got you! Browse trough our special selection of new arrivals and find the voices of modern art."
     },
     classics: {
@@ -27,7 +27,7 @@ export const categoryData = {
     sale: {
         href: "/sale",
         title: "Sale",
-        image: "sale-hero.png",
+        image: "sale-hero.jpg",
         text: "Records that are light on the wallet but heavy-handed on the good vibes. Don't miss out on these deals as they are available only for a limited time."
     }
 };

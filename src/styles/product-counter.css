@@ -8,7 +8,7 @@
 
 .product-counter__progress-bar {
     width: 100%;
-    height: 8px;
+    height: 10px;
     border: 1px solid var(--border-color);
     background-color: var(--light-bg-color);
 }
@@ -21,4 +21,27 @@
 .product-counter__progress-bar,
 .product-counter__progress-bar div {
     border-radius: 5px;
+}
+
+@media (min-width: 740px) {
+    .product-counter {
+        grid-column: 1 / 3;
+    }
+
+    .product-counter__progress-bar {
+        width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 900px) {
+    .product-counter {
+        grid-column: 1 / 4;
+    }
+}
+
+@media (min-width: 1280px) {
+    .product-counter {
+        grid-column: 1 / 5;
+    }
 }

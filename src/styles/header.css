@@ -8,7 +8,7 @@
     justify-content: space-between;
 
     width: 100%;
-    height: 42px;
+    height: 48px;
     padding: 0 5px;
 
     background-color: var(--header-color);
@@ -38,6 +38,11 @@
     transition: opacity 300ms 500ms;
 }
 
+#menu a {
+    width: 100%;
+    display: inline-block;
+}
+
 #menu #collapse-btn {
     position: absolute;
     top: 5px;
@@ -51,6 +56,8 @@
     padding: 0 5px;
     margin-left: 22px;
     transition: margin-left 500ms;
+    opacity: 0;
+    transition: opacity 300ms,  margin-left 0ms 500ms;
 }
 
 #menu {
@@ -93,6 +100,8 @@
 
 #menu.expanded h2 {
     margin-left: 0;
+    opacity: 1;
+    transition: opacity 300ms 300ms;
 }
 
 #menu.expanded ul {

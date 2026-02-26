@@ -7,10 +7,6 @@
     transition: height 500ms ease-in-out;
 }
 
-.dropdown.expanded {
-    height: calc(5em + 80px);
-}
-
 .dropdown__selected-option {
     display: flex;
     justify-content: space-between;

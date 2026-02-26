@@ -1,4 +1,5 @@
 import "../../styles/product.css";
+import SingleRowTitle from "../common/SingleRowTitle";
 
 import BuyButton from "./BuyButton";
 import Price from "./Price";
@@ -9,7 +10,7 @@ export default function Product({ data, isPopupBusy }) {
         <article className="product">
             <section>
                 <div className="product__title">
-                    <h2>{data.name}</h2>
+                    <SingleRowTitle title={data.name} Header="h2" />
                     <h3>{data.artist}</h3>
                     {data.discount > 0 && 
                         <span className="discount">{`${data.discount * 100}% OFF`}</span>}

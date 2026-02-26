@@ -21,7 +21,7 @@ const artists = [
     "stevie_nicks",
     "bad_omens",
     "maneskin",
-    "rainbow",
+    "deep_purple",
     "greta_van_fleet",
     "madonna",
     "bjork",

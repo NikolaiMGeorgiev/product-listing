@@ -12,6 +12,7 @@
     border: 2px solid var(--border-color);
     border-radius: 50%;
     z-index: 1000;
+    cursor: pointer;
 }
 
 #filter.expanded #filter__icon-container {
@@ -70,8 +71,13 @@
 }
 
 #filter__container {
-    height: calc(100% - 92px);
+    height: calc(100% - 112px);
+    margin-top: 20px;
     overflow-y: auto;
+}
+
+#filter__container::-webkit-scrollbar-button {
+  display: none;
 }
 
 #filter__filters {
@@ -89,7 +95,7 @@
 }
 
 #filter h2 {    
-    margin: 20px 0 0 20px;
+    margin: 0 0 0 20px;
 }
 
 #filter #close-btn {
@@ -138,5 +144,11 @@
 
     100% {
         scale: 0;
+    }
+}
+
+@media (min-width: 740px) {
+    #filter__wrapper {
+        width: 400px;
     }
 }

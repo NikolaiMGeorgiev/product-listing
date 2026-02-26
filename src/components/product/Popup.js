@@ -4,7 +4,7 @@ export default function Popup({ message, setShowPopup, isPopupBusy }) {
     setTimeout(() => {
         setShowPopup(false);
         isPopupBusy.current = false;
-    }, 4000)
+    }, 2000)
 
     return ( 
         <div className="popup">

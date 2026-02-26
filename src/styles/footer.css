@@ -1,15 +1,16 @@
 footer {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-
-    position: absolute;
     width: 100%;
     padding: 20px;
 
     background-color: var(--header-color);
     border-top: 2px solid var(--border-color);
     color: var(--light-contrast-color);
+}
+
+#footer__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
 }
 
 footer .logo {
@@ -97,4 +98,16 @@ footer ul a:visited {
 
 footer ul li + li {
     margin-top: 5px;
+}
+
+@media (min-width: 740px) {
+    #footer__container {
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    #footer__header {
+        grid-column: 1 / 4;
+    }
 }

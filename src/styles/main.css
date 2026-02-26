@@ -1,3 +1,7 @@
+:root {
+    --items-per-page: 5;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -54,4 +58,22 @@ a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (min-width: 740px) {
+    :root {
+        --items-per-page: 10;
+    }
+}
+
+@media (min-width: 900px) {
+    :root {
+        --items-per-page: 15;
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+        --items-per-page: 20;
+    }
 }
